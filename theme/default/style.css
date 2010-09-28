@@ -1,0 +1,59 @@
+/*-----------------------------------------------
+Name:     Simple1
+Date:     08 March 2010
+Created by: Xenlus Group
+----------------------------------------------- */
+
+
+body {
+background:#fff;
+}
+
+table, td, div, p {
+font-family:arial; color:#000; font-size:11px;
+}
+
+a {
+color:gray; border-bottom:1px solid #f5f5f5; text-decoration:none;
+}
+a:hover {
+color:#000; border-bottom:none; cursor:default; text-decoration:line-through;
+}
+
+u {
+border-bottom:1px solid #f5f5f5; text-decoration:underline;
+}
+s {
+font-family:courier new; text-decoration:line-through;
+}
+
+blockquote {
+border:1px dotted #f5f5f5; padding:5px;
+}
+.layer {
+width:750px; border-left:1px solid #f5f5f5; border-right:1px solid #f5f5f5;
+}
+.header {
+border-bottom:1px solid #f5f5f5; text-align:center;
+}
+.footer {
+border-top:1px solid #f5f5f5; text-align:center;
+}
+.heading1 {
+font-size:25px; font-family:georgia; letter-spacing:-2px; line-height:80%;
+}
+.heading2 {
+font-size:14px; font-family:courier new; letter-spacing:1px;
+}
+.menu {
+padding:10px;
+}
+.icon {
+width:100px; border:1px dotted #f5f5f5; padding:5px;
+}
+.h1 {
+border-bottom:1px dotted #f5f5f5; font-family:georgia; font-size:16px; letter-spacing:-1px; text-transform:lowercase; line-height:90%; text-align:right;
+}
+.h2 {
+font-family:courier new; text-transform:uppercase; text-align:left;
+}
