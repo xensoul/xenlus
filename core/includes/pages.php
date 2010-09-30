@@ -36,21 +36,29 @@ if ($querypageid == "sitemap") {
         $pagetext = "The extension youve requested to display a page could not be found";
     }
 } else {
-    $query = "SELECT `pageid`, `pagetitle`, `pagetext`, `loggedin`, `comments` FROM " . $table_prefix . "pages WHERE pageid='" . $querypageid . "'";
+    $blog_postnumber = 5;
+
+    if (!isset($_GET['page']) || !is_numeric($_GET['page'])) {
+        $page = 1;
+    } else {
+        $page = (int) $_GET['page'];
+    }
+    $from = (($page * $blog_postnumber) - $blog_postnumber);
+
+    $query = "SELECT * FROM " . ENTRIES . " ORDER BY timestamp DESC LIMIT $from, $blog_postnumber";
+
     $contentpagesresult = mysql_query($query) or die(mysql_error());
     $numpages = mysql_num_rows($contentpagesresult) or die(mysql_error());
 
-    if ($numpages == "0") {
-        $pagetitle = "Doesnt exists";
-        $pagetext = "this page doesnt exists";
-        $pageid = 0;
+    if ($numpages == 0) {
+        $entry_title = "Doesnt exists";
+        $entry_content = "this page doesnt exists";
+        $entryid = 0;
     } else {
         $row = mysql_fetch_assoc($contentpagesresult);
-        $pageid = stripslashes($row['pageid']);
-        $pagetitle = stripslashes($row['pagetitle']);
-        $pagetext = stripslashes($row['pagetext']);
-        $needlogin = stripslashes($row['loggedin']);
-        $comments = stripslashes($row['comments']);
+        $entryid = stripslashes($row['entryid']);
+        $entry_title = stripslashes($row['entry_title']);
+        $entry_content = stripslashes($row['entry_content']);
     }
 }
 
